@@ -25,6 +25,11 @@
 <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
 
+<div class="contact-info">
+	<h3><a id="pdf" href="#">Download PDF</a></h3>
+</div><!--// .contact-info -->
+
+<div id="docc" style="margin: 25px 150px 1px 200px;">
 <div id="doc2" class="yui-t7">
 	<div id="inner">
 	
@@ -37,9 +42,10 @@
 
 				<div class="yui-u">
 					<div class="contact-info">
-						<h3><a id="pdf" href="#">Download PDF</a></h3>
+						
 						<h3><a href="mailto:hassansajid718@gmail.com">hassansajid718@gmail.com</a></h3>
 						<h3>(91) - 7022550519</h3>
+						<h3 style="padding-top:10px;">4D Trinayani Apartments<br>35/3 Jogendra Basak Road<br>Kolkata 700036<br>West Bengal, India</h3>
 					</div><!--// .contact-info -->
 				</div>
 			</div><!--// .yui-gc -->
@@ -172,15 +178,15 @@
 
 
 </div><!--// doc -->
-
+</div>
 <script>
 	$('#pdf').click(function(){
 		CreatePDFfromHTML()
 	});
 	
 	function CreatePDFfromHTML() {
-		var HTML_Width = $("#doc2").width();
-		var HTML_Height = $("#doc2").height();
+		var HTML_Width = $("#docc").width();
+		var HTML_Height = $("#docc").height();
 		var top_left_margin = 15;
 		var PDF_Width = HTML_Width + (top_left_margin * 2);
 		var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
@@ -189,15 +195,15 @@
 
 		var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
-		html2canvas(document.querySelector('#doc2:not(#pdf)')).then(function (canvas) {
-			var imgData = canvas.toDataURL("image/bmp", 1.0);
+		html2canvas(document.querySelector('#docc:not(#pdf)')).then(function (canvas) {
+			var imgData = canvas.toDataURL("image/bmp", 2.0);
 			var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
 			pdf.addImage(imgData, 'BMP', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
 			for (var i = 1; i <= totalPDFPages; i++) { 
 				pdf.addPage(PDF_Width, PDF_Height);
 				pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
 			}
-			pdf.save("Your_PDF_Name.pdf");
+			pdf.save("Resume_Sajid.pdf");
 			$(".html-content").hide();
 		});
 	}
