@@ -2,9 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /index.html
-    destination: /webapps/Config
-  - source: source
-    destination: /var/www/html/
+    destination: /var/www/html/my-resume
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
