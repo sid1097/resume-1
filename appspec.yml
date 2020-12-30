@@ -2,8 +2,6 @@ version: 0.0
 os: linux
 files:
   - source: /srt-resume.html
-    destination: /webapps/Config
-  - source: source
     destination: /var/www/html/
 hooks:
   BeforeInstall:
