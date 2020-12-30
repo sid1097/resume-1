@@ -3,6 +3,12 @@ os: linux
 files:
   - source: /index.html
     destination: /var/www/html/my-resume
+  - source: /resume.css
+    destination: /var/www/html/my-resume
+  - source: /srt.png
+    destination: /var/www/html/my-resume
+  - source: /ttab.png
+    destination: /var/www/html/my-resume
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
