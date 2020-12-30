@@ -1,4 +1,4 @@
 #!/bin/bash
 sudo apt-get update
 sudo apt-get -y install apache2
-sudo rm -f /var/www/html/my-resume/index.html
+sudo rm -f /var/www/html/my-resume/*
